@@ -1,4 +1,4 @@
-import DomUtil  from "./domUtil";
+import DomUtil  from "./domUtil.js";
 class Loading {
     element;
     static remove(parentElement) {
