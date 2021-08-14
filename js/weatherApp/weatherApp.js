@@ -1,5 +1,6 @@
 import API from './api.js';
-import NoData from './noData.js'
+import NoData from './noData.js';
+import Loading from './loading.js';
 class WeatherApp {
     rootElement;
     static render(data, systemUsed) {
@@ -16,9 +17,11 @@ class WeatherApp {
             if(!this.rootElement) throw `Could not find the element with ${selector}`;
             const defaultCity = 'Sydney';
             const systemUsed = 'metric';
+            Loading.render(this.rootElement);
             API.getWeatherData(defaultCity)
                 .then( data => {
                    this.render(null, systemUsed);
+                   Loading.remove(this.rootElement);
                 });
        }
        catch(error) {

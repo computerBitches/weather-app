@@ -10,6 +10,7 @@ class NoData {
         innerDiv.appendChild(heading);
         element.appendChild(innerDiv);
         parentElement.appendChild(element); 
+        Search.render(innerDiv);
     }
 }
 export default NoData;
