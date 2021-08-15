@@ -2,12 +2,13 @@ import API from './api.js';
 import NoData from './noData.js';
 import Loading from './loading.js';
 import WeatherComponent from './weatherComponent.js';
-
+import constants from './constants.js';
 
 class WeatherApp {
     rootElement;
     static render(data, systemUsed) {
-        if(!data) {
+        this.rootElement.innerHTML = null;
+        if(!data || (data.cod === '404')) {
             NoData.render(this.rootElement);
         }
         else {
@@ -19,14 +20,11 @@ class WeatherApp {
        try {
             this.rootElement = document.querySelector(selector);
             if(!this.rootElement) throw `Could not find the element with ${selector}`;
-            const defaultCity = 'Sydney';
-            const systemUsed = 'metric';
             Loading.render(this.rootElement);
-            API.getWeatherData(defaultCity)
+            API.getWeatherData(constants.DEFAULT_CITY)
                 .then( data => {
                     Loading.remove(this.rootElement);
-                   this.render(data, systemUsed);
-                   
+                   this.render(data, constants.DEFAULT_UNIT);   
                 });
        }
        catch(error) {
