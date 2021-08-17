@@ -8,10 +8,11 @@ class Search {
     static handleSearchInput(event) {
         if(event.key === 'Enter') {
             const inputValue = event.target.value.trim();
-            if(inputValue) {
-                    API.getWeatherData(inputValue).then( data => {
-                    this.element.value='';
+            if(inputValue) {   
                     Loading.render(this.parentElement);
+                    API.getWeatherData(inputValue).then( data => {
+                    localStorage.setItem("weather_data", JSON.stringify(data));
+                    this.element.value='';
                     WeatherApp.render(data, constants.DEFAULT_UNIT);   
                 });
             }

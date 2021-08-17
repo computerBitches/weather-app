@@ -27,12 +27,12 @@ class TitleAndSearch {
                   ":"
                 )[0]
               )
-            : timeToAMPM(
-                Converter.convertTime(data.dt, dat.timezone)[0]
+            : Converter.timeToAMPM(
+                Converter.convertTime(data.dt, data.timezone)[0]
               ).split(":")[0]}:00 ${systemUsed == "imperial"
             ? Utility.isPM(Converter.convertTime(data.dt, data.timezone)[0])
             : ""}`;
-            console.log(headingData.replace());
+            //console.log(headingData.replace());
     heading.innerText = headingData;
     element.appendChild(heading);
     Search.render(element);

@@ -1,14 +1,14 @@
 class Converter {
     static ctoF(c) { 
-        (c * 9) / 5 + 32;
+      return  (c * 9) / 5 + 32;
     }
 
     static mpsToMph(mps) {
-       (mps * 2.236936).toFixed(2);
+       return (mps * 2.236936).toFixed(2);
     }
     
     static kmToM(km) {
-        (km / 1.609).toFixed(1);
+      return  (km / 1.609).toFixed(1);
     }
     
     static timeToAMPM(time){
