@@ -13,7 +13,6 @@ class WeatherApp {
         }
         else {
             WeatherComponent.render(this.rootElement, data, systemUsed);
-           
         }
     }
     static init(selector) {
